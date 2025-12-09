@@ -42,31 +42,32 @@ def main():
     response = input("\nPress Enter to continue or Ctrl+C to cancel... ")
 
     all_passed = True
-    
+
     # Get the directory where this script is located (test_files/)
     import os
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Step 1: Populate database
     if not run_command(
-        f"{sys.executable} {os.path.join(script_dir, 'test_music_db.py')}", 
-        "Step 1: Populating database"
+        f"{sys.executable} {os.path.join(script_dir, 'test_music_db.py')}",
+        "Step 1: Populating database",
     ):
         print("\n✗ Failed to populate database. Please check your configuration.")
         return False
 
     # Step 2: Quick tests
     if not run_command(
-        f"{sys.executable} {os.path.join(script_dir, 'test_quick.py')}", 
-        "Step 2: Quick assertion tests"
+        f"{sys.executable} {os.path.join(script_dir, 'test_quick.py')}",
+        "Step 2: Quick assertion tests",
     ):
         print("\n⚠ Quick tests had failures")
         all_passed = False
 
     # Step 3: Comprehensive tests
     if not run_command(
-        f"{sys.executable} {os.path.join(script_dir, 'test_assertions.py')}", 
-        "Step 3: Comprehensive assertion tests"
+        f"{sys.executable} {os.path.join(script_dir, 'test_assertions.py')}",
+        "Step 3: Comprehensive assertion tests",
     ):
         print("\n⚠ Comprehensive tests had failures")
         all_passed = False

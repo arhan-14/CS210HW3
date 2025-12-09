@@ -54,7 +54,7 @@ def main():
     try:
         import subprocess
         import os
-        
+
         # Get the directory where this script is located
         script_dir = os.path.dirname(os.path.abspath(__file__))
         test_quick_path = os.path.join(script_dir, "test_quick.py")
